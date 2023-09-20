@@ -19,25 +19,20 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(VisibleAnywhere)
-	FString PlayerName = "A_CppBase_C_";
-
-	UPROPERTY(EditAnywhere)
-	int enemyNum = 20;
-
-	UPROPERTY(EditDefaultsOnly)
-	float currentHealth = 57.54687;
-
-	UPROPERTY(EditInstanceOnly)
-	bool isAlive = true;
+	UFUNCTION(BlueprintCallable)
+	void SinMovement();
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 private:
-	void ShowInformation();
-	void ShowActorInformation();
-	static int count;
-	int id;
+	UPROPERTY(EditInstanceOnly)
+	float Amplitude = 70.0;
+
+	UPROPERTY(EditInstanceOnly)
+	float Frequency = 4.0;
+
+	UPROPERTY(VisibleAnywhere)
+	FVector InitialLocation;
 };

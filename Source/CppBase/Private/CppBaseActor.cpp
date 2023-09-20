@@ -4,8 +4,6 @@
 #include "CppBaseActor.h"
 #include "Engine/Engine.h"
 
-int ACppBaseActor::count = 0;
-
 // Sets default values
 ACppBaseActor::ACppBaseActor()
 {
@@ -18,9 +16,13 @@ ACppBaseActor::ACppBaseActor()
 void ACppBaseActor::BeginPlay()
 {
 	Super::BeginPlay();
+	InitialLocation = FVector(FMath::FRandRange(-100.0f, 100.0f), FMath::FRandRange(0.0f, 350.0f), 0.0f);
+}
 
-	//ShowInformation();
-	ShowActorInformation();
+// Расчет траектории синуса
+void ACppBaseActor::SinMovement()
+{
+	InitialLocation.Z += Amplitude * FMath::Sin(Frequency * FDateTime::Now().GetTicks());
 }
 
 // Called every frame
@@ -30,36 +32,20 @@ void ACppBaseActor::Tick(float DeltaTime)
 
 }
 
+
+
+/*
 void ACppBaseActor::ShowInformation()
 {
-	// У меня русский текст не выводится? (
 	UE_LOG(LogTemp, Display, TEXT("CppBase is here"));
 	UE_LOG(LogTemp, Warning, TEXT("CppBase класс ошибся"));
 	UE_LOG(LogTemp, Error, TEXT("CppBase Ай-ай-ай!"));
-
-	/*
-		каждый раз когда я что то меняю в VS,
-		нужно сначала ЗАКРЫТЬ UE, а затем запустить
-		программы и она снова открое UE или есть способ
-		пересобрать программу без закрытия UE?
-	*/
 	
-	UE_LOG(LogTemp, Display, TEXT("PlayerName: %s"), *PlayerName);
 	GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Black, PlayerName, true, FVector2D(2.0f, 2.0f));
 	UE_LOG(LogTemp, Display, TEXT("currentHealth: %f"), currentHealth);
-}
-
-/*
-	Не знаю насколько правильно понял задание,
-	что касается (Instance name),
-	но все вроде работает как задумывалось)
-*/
-void ACppBaseActor::ShowActorInformation()
-{
-	id = count;
-	++count;
+	
 	UE_LOG(LogTemp, Display, TEXT("Instance name: %s%d"), *PlayerName, id);
-	UE_LOG(LogTemp, Display, TEXT("EnemyNum: %d"), enemyNum);
 	UE_LOG(LogTemp, Display, TEXT("IsAlive: %i"), isAlive);
 }
+*/
 

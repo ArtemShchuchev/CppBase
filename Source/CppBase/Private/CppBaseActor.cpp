@@ -19,8 +19,8 @@ void ACppBaseActor::BeginPlay()
 {
 	Super::BeginPlay();
 
-	//ShowInformation();
-	ShowActorInformation();
+	ShowInformation();
+	//ShowActorInformation();
 }
 
 // Called every frame

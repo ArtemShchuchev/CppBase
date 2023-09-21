@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "CppBaseActor.h"
@@ -18,24 +18,24 @@ ACppBaseActor::ACppBaseActor()
 void ACppBaseActor::BeginPlay()
 {
 	Super::BeginPlay();
-	// Ïî÷åìó ìîè àêòîðû ñïàâíÿòñÿ íå ïî ýòèì êîîðäèíàòàì?
+	// ÐŸÐ¾Ñ‡ÐµÐ¼Ñƒ Ð¼Ð¾Ð¸ Ð°ÐºÑ‚Ð¾Ñ€Ñ‹ ÑÐ¿Ð°Ð²Ð½ÑÑ‚ÑÑ Ð½Ðµ Ð¿Ð¾ ÑÑ‚Ð¸Ð¼ ÐºÐ¾Ð¾Ñ€Ð´Ð¸Ð½Ð°Ñ‚Ð°Ð¼?
 	InitialLocation = FVector(FMath::FRandRange(-100.0f, 100.0f), FMath::FRandRange(0.0f, 350.0f), 0.0f);
 }
 
-// Ðàñ÷åò òðàåêòîðèè ñèíóñà
+// Ð Ð°ÑÑ‡ÐµÑ‚ Ñ‚Ñ€Ð°ÐµÐºÑ‚Ð¾Ñ€Ð¸Ð¸ ÑÐ¸Ð½ÑƒÑÐ°
 /*
-	×åñòíî ãîâîðÿ, ÿ íè ÷å íå ïîíèìàþ...
-	â çàäàíèè áûëî ñêàçàíî, ìåòîä äîëæåí áûòü: void SinMovement() - ñ íèì ÿ âîîáùå íè ÷å ñäåëàòü íå ñìîã! ((
+	Ð§ÐµÑÑ‚Ð½Ð¾ Ð³Ð¾Ð²Ð¾Ñ€Ñ, Ñ Ð½Ð¸ Ñ‡Ðµ Ð½Ðµ Ð¿Ð¾Ð½Ð¸Ð¼Ð°ÑŽ...
+	Ð² Ð·Ð°Ð´Ð°Ð½Ð¸Ð¸ Ð±Ñ‹Ð»Ð¾ ÑÐºÐ°Ð·Ð°Ð½Ð¾, Ð¼ÐµÑ‚Ð¾Ð´ Ð´Ð¾Ð»Ð¶ÐµÐ½ Ð±Ñ‹Ñ‚ÑŒ: void SinMovement() - Ñ Ð½Ð¸Ð¼ Ñ Ð²Ð¾Ð¾Ð±Ñ‰Ðµ Ð½Ð¸ Ñ‡Ðµ ÑÐ´ÐµÐ»Ð°Ñ‚ÑŒ Ð½Ðµ ÑÐ¼Ð¾Ð³! ((
 
-	÷å òî íàêîäèë ñ ìåòîäîì íèæå, âïðèíöèïå êàê òî ðàáîòàåò, íî 
-	õîòåëîñü áû çíàòü - êàê ïðàâèëüíî. Èç ëåêöèé è ïðåçåíòàöèé íè ÷å íå ïîíÿòíî,
-	(äà è åùå "Ñóïåð" øðèôò) êàê ýòî ñîáèðàåòñÿ. Ïîýòîìó ñäåëàë êàê ïîíÿë, ÷òî òî â Ñ++,
-	÷òî òî â Áëþïðèíòàõ.
+	Ñ‡Ðµ Ñ‚Ð¾ Ð½Ð°ÐºÐ¾Ð´Ð¸Ð» Ñ Ð¼ÐµÑ‚Ð¾Ð´Ð¾Ð¼ Ð½Ð¸Ð¶Ðµ, Ð²Ð¿Ñ€Ð¸Ð½Ñ†Ð¸Ð¿Ðµ ÐºÐ°Ðº Ñ‚Ð¾ Ñ€Ð°Ð±Ð¾Ñ‚Ð°ÐµÑ‚, Ð½Ð¾ 
+	Ñ…Ð¾Ñ‚ÐµÐ»Ð¾ÑÑŒ Ð±Ñ‹ Ð·Ð½Ð°Ñ‚ÑŒ - ÐºÐ°Ðº Ð¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¾. Ð˜Ð· Ð»ÐµÐºÑ†Ð¸Ð¹ Ð¸ Ð¿Ñ€ÐµÐ·ÐµÐ½Ñ‚Ð°Ñ†Ð¸Ð¹ Ð½Ð¸ Ñ‡Ðµ Ð½Ðµ Ð¿Ð¾Ð½ÑÑ‚Ð½Ð¾,
+	(Ð´Ð° Ð¸ ÐµÑ‰Ðµ "Ð¡ÑƒÐ¿ÐµÑ€" ÑˆÑ€Ð¸Ñ„Ñ‚) ÐºÐ°Ðº ÑÑ‚Ð¾ ÑÐ¾Ð±Ð¸Ñ€Ð°ÐµÑ‚ÑÑ. ÐŸÐ¾ÑÑ‚Ð¾Ð¼Ñƒ ÑÐ´ÐµÐ»Ð°Ð» ÐºÐ°Ðº Ð¿Ð¾Ð½ÑÐ», Ñ‡Ñ‚Ð¾ Ñ‚Ð¾ Ð² Ð¡++,
+	Ñ‡Ñ‚Ð¾ Ñ‚Ð¾ Ð² Ð‘Ð»ÑŽÐ¿Ñ€Ð¸Ð½Ñ‚Ð°Ñ….
 */
 double ACppBaseActor::SinMovement(const float time)
 {
-	// ìíîæèòåëü äëÿ ïðûæêà 0...1
-	// Ïî÷åìó FMath::Sin, à íå ïðîñòî sin? Ðàáîòàåò òàêæå...
+	// Ð¼Ð½Ð¾Ð¶Ð¸Ñ‚ÐµÐ»ÑŒ Ð´Ð»Ñ Ð¿Ñ€Ñ‹Ð¶ÐºÐ° 0...1
+	// ÐŸÐ¾Ñ‡ÐµÐ¼Ñƒ FMath::Sin, Ð° Ð½Ðµ Ð¿Ñ€Ð¾ÑÑ‚Ð¾ sin? Ð Ð°Ð±Ð¾Ñ‚Ð°ÐµÑ‚ Ñ‚Ð°ÐºÐ¶Ðµ...
 	float multJump = (FMath::Sin(Frequency * time) + 1.0) / 2;
 
 	return (Amplitude * multJump + InitialLocation.Z);
@@ -54,8 +54,8 @@ void ACppBaseActor::Tick(float DeltaTime)
 void ACppBaseActor::ShowInformation()
 {
 	UE_LOG(LogTemp, Display, TEXT("CppBase is here"));
-	UE_LOG(LogTemp, Warning, TEXT("CppBase êëàññ îøèáñÿ"));
-	UE_LOG(LogTemp, Error, TEXT("CppBase Àé-àé-àé!"));
+	UE_LOG(LogTemp, Warning, TEXT("CppBase ÐºÐ»Ð°ÑÑ Ð¾ÑˆÐ¸Ð±ÑÑ"));
+	UE_LOG(LogTemp, Error, TEXT("CppBase ÐÐ¹-Ð°Ð¹-Ð°Ð¹!"));
 	
 	GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Black, PlayerName, true, FVector2D(2.0f, 2.0f));
 	UE_LOG(LogTemp, Display, TEXT("currentHealth: %f"), currentHealth);

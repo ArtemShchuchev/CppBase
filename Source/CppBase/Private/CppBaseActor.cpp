@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+п»ї// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "CppBaseActor.h"
@@ -32,16 +32,16 @@ void ACppBaseActor::Tick(float DeltaTime)
 
 void ACppBaseActor::ShowInformation()
 {
-	// У меня русский текст не выводится? (
+	// вЂќ РјРµРЅВ¤ СЂСѓСЃСЃРєРёР№ С‚РµРєСЃС‚ РЅРµ РІС‹РІРѕРґРёС‚СЃВ¤? (
 	UE_LOG(LogTemp, Display, TEXT("CppBase is here"));
-	UE_LOG(LogTemp, Warning, TEXT("CppBase класс ошибся"));
-	UE_LOG(LogTemp, Error, TEXT("CppBase Ай-ай-ай!"));
+	UE_LOG(LogTemp, Warning, TEXT("CppBase РєР»Р°СЃСЃ РѕС€РёР±СЃСЏ"));
+	UE_LOG(LogTemp, Error, TEXT("CppBase Р°Р№-Р°Р№-Р°Р№!"));
 
 	/*
-		каждый раз когда я что то меняю в VS,
-		нужно сначала ЗАКРЫТЬ UE, а затем запустить
-		программы и она снова открое UE или есть способ
-		пересобрать программу без закрытия UE?
+		РєР°Р¶РґС‹Р№ СЂР°Р· РєРѕРіРґР° В¤ С‡С‚Рѕ С‚Рѕ РјРµРЅВ¤СЋ РІ VS,
+		РЅСѓР¶РЅРѕ СЃРЅР°С‡Р°Р»Р° Р·Р°РєСЂС‹С‚СЊ UE, Р° Р·Р°С‚РµРј Р·Р°РїСѓСЃС‚РёС‚СЊ
+		РїСЂРѕРіСЂР°РјРјС‹ Рё РѕРЅР° СЃРЅРѕРІР° РѕС‚РєСЂРѕРµ UE РёР»Рё РµСЃС‚СЊ СЃРїРѕСЃРѕР±
+		РїРµСЂРµСЃРѕР±СЂР°С‚СЊ РїСЂРѕРіСЂР°РјРјСѓ Р±РµР· Р·Р°РєСЂС‹С‚РёВ¤ UE?
 	*/
 	
 	UE_LOG(LogTemp, Display, TEXT("PlayerName: %s"), *PlayerName);
@@ -50,9 +50,9 @@ void ACppBaseActor::ShowInformation()
 }
 
 /*
-	Не знаю насколько правильно понял задание,
-	что касается (Instance name),
-	но все вроде работает как задумывалось)
+	РЊРµ Р·РЅР°СЋ РЅР°СЃРєРѕР»СЊРєРѕ РїСЂР°РІРёР»СЊРЅРѕ РїРѕРЅВ¤Р» Р·Р°РґР°РЅРёРµ,
+	С‡С‚Рѕ РєР°СЃР°РµС‚СЃВ¤ (Instance name),
+	РЅРѕ РІСЃРµ РІСЂРѕРґРµ СЂР°Р±РѕС‚Р°РµС‚ РєР°Рє Р·Р°РґСѓРјС‹РІР°Р»РѕСЃСЊ)
 */
 void ACppBaseActor::ShowActorInformation()
 {

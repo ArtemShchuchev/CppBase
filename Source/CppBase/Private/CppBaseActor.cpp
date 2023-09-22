@@ -26,19 +26,16 @@ void ACppBaseActor::BeginPlay()
 /*
 	Честно говоря, я ни че не понимаю...
 	в задании было сказано, метод должен быть: void SinMovement() - с ним я вообще ни че сделать не смог! ((
-
-	че то накодил с методом ниже, впринципе как то работает, но 
-	хотелось бы знать - как правильно. Из лекций и презентаций ни че не понятно,
-	(да и еще "Супер" шрифт) как это собирается. Поэтому сделал как понял, что то в С++,
-	что то в Блюпринтах.
 */
-double ACppBaseActor::SinMovement(const float time)
+float ACppBaseActor::SinMovement(const float z)
 {
+	UWorld* World = GetWorld();
+
 	// множитель для прыжка 0...1
 	// Почему FMath::Sin, а не просто sin? Работает также...
-	float multJump = (FMath::Sin(Frequency * time) + 1.0) / 2;
+	float multJump = (FMath::Sin(Frequency * World->GetTimeSeconds()) + 1.0) / 2;
 
-	return (Amplitude * multJump + InitialLocation.Z);
+	return (Amplitude * multJump + z);
 }
 
 // Called every frame
@@ -47,27 +44,3 @@ void ACppBaseActor::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 }
-
-
-
-/*
-void ACppBaseActor::ShowInformation()
-{
-	UE_LOG(LogTemp, Display, TEXT("CppBase is here"));
-	UE_LOG(LogTemp, Warning, TEXT("CppBase класс ошибся"));
-	UE_LOG(LogTemp, Error, TEXT("CppBase Ай-ай-ай!"));
-	
-	GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Black, PlayerName, true, FVector2D(2.0f, 2.0f));
-	UE_LOG(LogTemp, Display, TEXT("currentHealth: %f"), currentHealth);
-	
-	UE_LOG(LogTemp, Display, TEXT("Instance name: %s%d"), *PlayerName, id);
-	UE_LOG(LogTemp, Display, TEXT("IsAlive: %i"), isAlive);
-	
-	
-	//int64 tick = FDateTime::Now().GetSecond();
-	//GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Black, FString::SanitizeFloat(wholeSin), true, FVector2D(2.0f, 2.0f));
-	//GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Black, FString::FromInt(tick), true, FVector2D(2.0f, 2.0f));
-	//GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Black, InitialLocation.ToCompactString(), true, FVector2D(2.0f, 2.0f));
-}
-*/
-

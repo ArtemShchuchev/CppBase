@@ -20,7 +20,7 @@ protected:
 	virtual void BeginPlay() override;
 
 	UFUNCTION(BlueprintCallable)
-	double SinMovement(const float time);
+	float SinMovement(const float z);
 
 public:	
 	// Called every frame

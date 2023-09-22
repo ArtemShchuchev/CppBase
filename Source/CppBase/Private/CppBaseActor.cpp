@@ -18,6 +18,7 @@ ACppBaseActor::ACppBaseActor()
 void ACppBaseActor::BeginPlay()
 {
 	Super::BeginPlay();
+	
 	// Почему мои акторы спавнятся не по этим координатам?
 	InitialLocation = FVector(FMath::FRandRange(-100.0f, 100.0f), FMath::FRandRange(0.0f, 350.0f), 0.0f);
 }

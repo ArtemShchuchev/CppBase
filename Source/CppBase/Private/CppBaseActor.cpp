@@ -21,6 +21,7 @@ void ACppBaseActor::BeginPlay()
 	
 	// Почему мои акторы спавнятся не по этим координатам?
 	InitialLocation = FVector(FMath::FRandRange(-100.0f, 100.0f), FMath::FRandRange(0.0f, 350.0f), 0.0f);
+	SetActorLocation(InitialLocation);
 }
 
 // Расчет траектории синуса
@@ -31,7 +32,6 @@ void ACppBaseActor::BeginPlay()
 float ACppBaseActor::SinMovement(const float z)
 {
 	UWorld* World = GetWorld();
-
 	// множитель для прыжка 0...1
 	// Почему FMath::Sin, а не просто sin? Работает также...
 	float multJump = (FMath::Sin(Frequency * World->GetTimeSeconds()) + 1.0) / 2;

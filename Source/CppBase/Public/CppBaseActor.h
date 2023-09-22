@@ -22,6 +22,9 @@ protected:
 	UFUNCTION(BlueprintCallable)
 	float SinMovement(const float z);
 
+	UPROPERTY(VisibleAnywhere)
+	FVector InitialLocation;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -35,7 +38,4 @@ private:
 
 	UPROPERTY(EditInstanceOnly)
 	float Frequency = 3.0;
-
-	UPROPERTY(VisibleAnywhere)
-	FVector InitialLocation;
 };
